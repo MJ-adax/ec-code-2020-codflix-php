@@ -15,6 +15,8 @@
 
 <div class="media-list">
     <?php foreach( $medias as $media ): ?>
+    <!-- ici ajouter la gestion du onclick() vers la redirection appel fonction js-->
+
         <a class="item" href="index.php?media=<?= $media['id']; ?>">
             <div class="video">
                 <div>
