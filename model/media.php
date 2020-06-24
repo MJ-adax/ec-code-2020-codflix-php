@@ -117,4 +117,20 @@ class Media {
 
   }
 
+  public static function getEpisodes( $id_media ) {
+
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "SELECT * FROM serie WHERE media_id = ?");
+    //$req  = $db->prepare( "SELECT * FROM serie LEFT JOIN media ON media_id = $id_media");
+    $req->execute( array($id_media));
+ 
+    $db = null;
+
+    return $req->fetchAll();
+
+
+  }
+
 }

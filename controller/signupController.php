@@ -16,19 +16,28 @@ function signupPage() {
     $password =  $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
-    if ($password == $password_confirm)
+    if ( !filter_var($email, FILTER_VALIDATE_EMAIL))
     {
-      if (!empty($_POST['email']) && !empty($_POST['password'])) {
-        $newUser = new User();
-        $newUser->setEmail( $email );
-        $newUser->setPassword( $password);
-        $newUser->createUser();
+      if ($password == $password_confirm)
+      {
+        if (!empty($_POST['email']) && !empty($_POST['password'])) 
+        {
+          $newUser = new User();
+          $newUser->setEmail( $email );
+          $newUser->setPassword( $password);
+          $newUser->createUser();
+        }
+      }
+      else 
+      {
+        $error_msg = 'MOT DE PASSE INCORRECT';
       }
     }
     else 
     {
-      $error_msg = 'MOT DE PASSE INCORRECT';
+      $error_msg = 'Email Invalide';
     }
+    
     
   }
   
