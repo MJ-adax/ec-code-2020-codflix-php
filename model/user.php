@@ -36,11 +36,6 @@ class User {
   }
 
   public function setPassword( $password, $password_confirm = false ) {
-
-    if( $password_confirm && $password != $password_confirm ):
-      throw new Exception( 'Vos mots de passes sont différents' );
-    endif;
-
     $this->password = $password;
   }
 
