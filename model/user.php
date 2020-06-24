@@ -30,7 +30,7 @@ class User {
   }
 
   public function setPassword( $password, $password_confirm = false ) {
-    $this->password = $password;
+    $this->password = password_hash($password, PASSWORD_BCRYPT);
   }
 
   /***************************
