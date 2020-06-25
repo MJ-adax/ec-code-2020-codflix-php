@@ -46,7 +46,25 @@ if ( isset( $_GET['action'] ) ):
 
     case 'profile':
 
-      profilePage();
+     profilePage();;
+      
+    break;
+
+    case 'changePassword':
+
+      changePassword();
+
+    break;
+
+    case 'changeEmail':
+
+      changeEmail();
+
+    break;
+
+    case 'deleteAccount':
+
+      deleteAccount();
 
     break;
 

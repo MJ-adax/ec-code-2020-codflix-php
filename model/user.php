@@ -117,4 +117,62 @@ class User {
     return $req->fetch();
   }
 
+  /**************************************
+  * -------- MODIFY USER PASSWORD --------
+  ***************************************/
+
+  public static function modifyUserPassword( $password ) {
+
+    $current_id = $_SESSION['user_id'];
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "UPDATE `user` SET `password`= ? WHERE id = ?" );
+    $req->execute( array( $password, $current_id ));
+
+    // Close databse connection
+    $db   = null;
+
+    return $req->fetch();
+  }
+
+  /**************************************
+  * -------- MODIFY USER EMAIL --------
+  ***************************************/
+
+  public static function modifyUserEmail( $email ) {
+
+    $current_id = $_SESSION['user_id'];
+   
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "UPDATE `user` SET `email`= ? WHERE id = ?" );
+    $req->execute( array( $email, $current_id ));
+
+    // Close databse connection
+    $db   = null;
+
+    return $req->fetch();
+  }
+
+  /**************************************
+  * -------- DELETE USER PROFILE --------
+  ***************************************/
+
+  public static function deleteUserProfile( $id ) {
+
+    
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "DELETE FROM `user` WHERE id = ?" );
+    $req->execute( array( $id ));
+
+    // Close databse connection
+    $db   = null;
+
+    return $req->fetch();
+  }
+
 }

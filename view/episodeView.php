@@ -16,7 +16,7 @@
         <div>
             <div style="display: flex;">
                 <div style="float: left; width: 50%;"><?= $infosEpisode['release_date']; ?></div>
-                <div style="float: right; width: 50%;"> <?= $infosEpisode['duration']; ?></div>
+                <div style="float: right; width: 50%;"> <?= gmdate("i:s", $infosEpisode['duration']); ?></div>
             </div>  
         </div>  
     </div>
