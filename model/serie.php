@@ -138,5 +138,21 @@ class Serie {
 
   }
 
+  public static function getNumberOfSeasons( $season ) {
+    // Open database connection
+    $db   = init_db();
+
+    print_r($season);
+    $req  = $db->prepare( "SELECT season FROM serie WHERE media_id = ? GROUP BY season");
+    $req->execute( array($season));
+ 
+    $db = null;
+
+    return $req->fetchAll();
+    
+
+
+  }
+
 
 }

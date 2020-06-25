@@ -31,7 +31,8 @@ class User {
 
   public function setPassword( $password, $password_confirm = false ) {
     $this->password = $password;
-    //$this->password = password_hash($password, PASSWORD_BCRYPT);
+    
+    //print($this->password);
   }
 
   /***************************
@@ -58,7 +59,7 @@ class User {
 
     // Open database connection
     $db   = init_db();
-
+    echo "le mot de passe".$this->getPassword();
     // Check if email already exist
     $req  = $db->prepare( "SELECT * FROM user WHERE email = ?" );
     $req->execute( array( $this->getEmail() ) );
@@ -73,6 +74,7 @@ class User {
       'email'     => $this->getEmail(),
       'password'  => $this->getPassword()
     ));
+    
 
     // Close databse connection
     $db = null;
