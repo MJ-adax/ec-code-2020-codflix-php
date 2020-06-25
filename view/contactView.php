@@ -8,7 +8,7 @@
           <h2><span>Cod</span>'Flix</h2>
           <h3>Contactez Nous</h3>
 
-          <form method="post" action="index.php?action=login" class="custom-form">
+          <form method="post" action="index.php?action=contact" class="custom-form">
 
             <div class="form-group">
               <label for="email">Votre Mail</label>
@@ -24,9 +24,6 @@
               <div class="row">
                 <div class="col-md-6">
                   <input type="submit" name="Valider" class="btn btn-block bg-red" />
-                </div>
-                <div class="col-md-6">
-                  <a href="index.php?action=signup" class="btn btn-block bg-blue">Inscription</a>
                 </div>
               </div>
             </div>
