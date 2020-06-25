@@ -89,9 +89,9 @@ class Serie {
       return $this->duration;
   }
 
-  /***************************
-  * -------- GET LIST --------
-  ***************************/
+  /**************************************
+  * -------- GET LIST OF EPISODES--------
+  ***************************************/
 
   public static function filterEpisodes( $name_episode ) {
 
@@ -108,6 +108,10 @@ class Serie {
 
   }
 
+  /******************************************
+  * -------- GET EPISODES FOR A SERIE--------
+  ******************************************/
+
   public static function getEpisodes( $media_id ) {
 
     // Open database connection
@@ -120,8 +124,11 @@ class Serie {
 
     return $req->fetchAll();
 
-
   }
+
+  /********************************************
+  * -------- GET DETAIL FOR ONE EPISODE--------
+  *********************************************/
 
   public static function getDetailEpisode( $num_episode ) {
 
@@ -138,11 +145,14 @@ class Serie {
 
   }
 
+  /****************************************************
+  * -------- GET NUMBER OF SEASONS FOR A SEASON--------
+  *****************************************************/
+
   public static function getNumberOfSeasons( $season ) {
     // Open database connection
     $db   = init_db();
 
-    print_r($season);
     $req  = $db->prepare( "SELECT season FROM serie WHERE media_id = ? GROUP BY season");
     $req->execute( array($season));
  

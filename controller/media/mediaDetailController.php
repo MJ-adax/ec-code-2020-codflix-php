@@ -4,7 +4,7 @@
 require_once( 'model/media.php' );
 
 /***************************
-* ----- LOAD DETAIL PAGE -----
+* ----- LOAD MEDIA DETAIL PAGE -----
 ***************************/
 
 

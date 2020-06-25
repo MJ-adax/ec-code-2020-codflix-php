@@ -3,7 +3,7 @@
 require_once( 'model/serie.php' );
 
 /***************************
-* ----- LOAD SERIE PAGE -----
+* ----- LOAD SERIE PAGE WITH EPISODES -----
 ***************************/
 
 function seriePage() {

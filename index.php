@@ -1,13 +1,13 @@
 <?php
 
 require_once( 'controller/homeController.php' );
-require_once( 'controller/loginController.php' );
-require_once( 'controller/signupController.php' );
-require_once( 'controller/mediaController.php' );
-require_once( 'controller/mediaDetailController.php' );
+require_once( 'controller/auth/loginController.php' );
+require_once( 'controller/auth/signupController.php' );
+require_once( 'controller/media/mediaController.php' );
+require_once( 'controller/media/mediaDetailController.php' );
 require_once( 'controller/contactController.php' );
-require_once( 'controller/serieController.php');
-require_once( 'controller/episodeController.php');
+require_once( 'controller/media/serieController.php');
+require_once( 'controller/media/episodeController.php');
 require_once( 'controller/profileController.php');
 
 

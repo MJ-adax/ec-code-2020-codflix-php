@@ -8,9 +8,8 @@ require_once( 'model/user.php' );
 
 function signupPage() {
 
-  //if ($_POST != null){
-    $user     = new stdClass();
-    $user->id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;
+  $user     = new stdClass();
+  $user->id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;
 
     if( !$user->id ):
       require('view/auth/signupView.php');
@@ -22,8 +21,6 @@ function signupPage() {
     $password =  $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
-    //if ( !filter_var($email, FILTER_VALIDATE_EMAIL))
-    //{
       if ($password == $password_confirm)
       {
         if (!empty($_POST['email']) && !empty($_POST['password'])) 
@@ -39,19 +36,7 @@ function signupPage() {
       {
         $error_msg = 'MOT DE PASSE INCORRECT';
       }
-    /**
-    else 
-    {
-      $error_msg = 'Email Invalide';
-    }
-    */
-    
-  //}
   
   
 
 }
-
-/***************************
-* ----- SIGNUP FUNCTION -----
-***************************/

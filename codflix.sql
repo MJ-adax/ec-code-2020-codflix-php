@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 24, 2020 at 09:49 AM
+-- Generation Time: Jun 25, 2020 at 06:21 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
@@ -51,24 +51,6 @@ CREATE TABLE `history` (
 
 -- --------------------------------------------------------
 
--- --------------------------------------------------------
-
---
--- Table structure for table `serie'
---
-
-CREATE TABLE `serie` (
-  `id` int(11) NOT NULL,
-  `serie_id` int(11) NOT NULL,
-  `season` int(11) NOT NULL,
-  `name_episode` varchar(100) NOT NULL,
-  `num_episode` int(11) NOT NULL,
-  `summary` longtext NOT NULL,
-  `release_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `media`
 --
@@ -91,7 +73,36 @@ CREATE TABLE `media` (
 INSERT INTO `media` (`id`, `genre_id`, `title`, `type`, `status`, `release_date`, `summary`, `trailer_url`) VALUES
 (1, 1, 'The Simpsons : The Movie', 'Film', 'Publié', '2007-07-27', 'Une histoire de DOME', 'https://www.youtube.com/embed/8arbBxezySc'),
 (2, 2, 'En Avant !', 'Film', 'Publié', '2020-03-04', 'Gnome et Magie en perspective', 'https://www.youtube.com/embed/XRF6uuubGcI'),
-(3, 3, 'Scary Movie', 'Film', 'Publié', '2020-10-25', 'Saluuuuut Cind', 'https://www.youtube.com/embed/2g9OefP1Kg4');
+(3, 3, 'Scary Movie', 'Film', 'Publié', '2020-10-25', 'Un soir, Drew Becker reçoit un appel anonyme dun maniaque. Traquée dans sa maison, puis dans son jardin, elle finit par se faire tuer. Sa mort plonge ses camarades de lycée en plein cauchemar, d\'autant qu\'ils doivent désormais faire face à un tueur en série, caché parmi eux. Flairant le scoop, la journaliste Gail Hailstorn débarque en ville, bien décidée à harceler Cindy Campbell et ses amis à propos de cette histoire.', 'https://www.youtube.com/embed/2g9OefP1Kg4'),
+(6, 3, 'CROSSED', 'Serie', 'Publié', '2013-12-09', 'Une série autour des films basé sur le jeu vidéo', 'https://www.youtube.com/embed/wCgs8edZGfE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `serie`
+--
+
+CREATE TABLE `serie` (
+  `id` int(11) NOT NULL,
+  `media_id` int(11) NOT NULL,
+  `season` int(11) NOT NULL,
+  `name_episode` varchar(100) NOT NULL,
+  `num_episode` int(11) NOT NULL,
+  `summary` longtext NOT NULL,
+  `release_date` date NOT NULL,
+  `trailer_url` varchar(100) NOT NULL,
+  `duration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `serie`
+--
+
+INSERT INTO `serie` (`id`, `media_id`, `season`, `name_episode`, `num_episode`, `summary`, `release_date`, `trailer_url`, `duration`) VALUES
+(1, 6, 1, 'Super Mario Bros', 1, 'Analyse et Joyeusetés autour du film Super Mario Bros', '2013-12-09', 'https://www.youtube.com/embed/wCgs8edZGfE', 590),
+(2, 6, 1, 'Gamer', 2, 'Nos joyeux comparses démolissent la bouse filmique que représente le film Gamer', '2013-12-17', 'https://www.youtube.com/embed/iNQFMYDgUPs', 698),
+(3, 6, 1, 'Silent Hill', 3, 'Karim et ses compagnons décrivent Silent Hill', '2014-01-02', 'https://www.youtube.com/embed/V7utSIOWA4o', 645),
+(4, 6, 2, 'Troll 2', 1, 'Mr Debbache est reparti pour de nouvelles aventures et entame sa folle épopée avec la critique du film Troll 2', '2016-09-21', 'https://www.youtube.com/embed/y-LvewxKfaw', 1317);
 
 -- --------------------------------------------------------
 
@@ -110,7 +121,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`) VALUES
-(1, 'coding@gmail.com', '123456');
+(2, 'test@test.com', 'jesuisuntest'),
+(3, 'gnagna@gmail.com', 'bonjour'),
+(7, 'tata@tata.com', 'gneeeeeeee'),
+(9, 'tete@tete.com', '$2y$10$rwXIqhhQlrFtHJuuJqxUo.vx4hLUz0/3L67sfa5ddXb.Xpfm4HXo2'),
+(15, 'f@f.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4'),
+(16, 'coding@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'),
+(18, 'jean@jean.com', '57ce7e99afd3c03813b5883f6835b4434a79f69cf9fa66104b35ff93e8c97743');
 
 --
 -- Indexes for dumped tables
@@ -131,19 +148,18 @@ ALTER TABLE `history`
   ADD KEY `history_media_id_fk_media_id` (`media_id`);
 
 --
---
--- Indexes for table `serie`
---
-ALTER TABLE `serie`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `serie_serie_id_fk_media_id` (`serie_id`);
-
---
 -- Indexes for table `media`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id`),
   ADD KEY `media_genre_id_fk_genre_id` (`genre_id`) USING BTREE;
+
+--
+-- Indexes for table `serie`
+--
+ALTER TABLE `serie`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `serie_serie_id_fk_media_id` (`media_id`);
 
 --
 -- Indexes for table `user`
@@ -171,13 +187,13 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

@@ -2,6 +2,7 @@
 
 <div class="media-list">
 
+   <?php /** Need to implement management of episodes by season */ ?>
     <?php foreach( $nbSeasons as $season): ?>
         <?php foreach( $episodes as $episode ): ?>
             <?php if( $season['season'] == $episode['season']): ?>

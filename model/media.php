@@ -84,9 +84,9 @@ class Media {
     return $this->trailer_url;
   }
 
-  /***************************
-  * -------- GET LIST --------
-  ***************************/
+  /*************************************
+  * -------- GET LIST OF MEDIAS --------
+  *************************************/
 
   public static function filterMedias( $title ) {
 
@@ -102,6 +102,10 @@ class Media {
     return $req->fetchAll();
 
   }
+
+    /*************************************
+  * -------- GET MEDIA --------
+  *************************************/
   
   public static function getMedia ( $id_media ) {
 

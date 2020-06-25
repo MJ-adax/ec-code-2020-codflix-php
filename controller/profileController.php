@@ -11,6 +11,10 @@ function profilePage()
     require('view/profileView.php');
 }
 
+/****************************************
+* ----- FUNCTION TO CHANGE PASSWORD -----
+****************************************/
+
 function changePassword()
 {
     $old_password = $_POST['old_password'];
@@ -28,6 +32,10 @@ function changePassword()
     require('view/profileView.php');
 }
 
+/*************************************
+* ----- FUNCTION TO CHANGE EMAIL -----
+*************************************/
+
 function changeEmail()
 {
     $email = $_POST['email'];
@@ -35,6 +43,10 @@ function changeEmail()
 
     require('view/profileView.php');
 }
+
+/********************************************
+* ----- FUNCTION TO DELETE ACCOUNT USER -----
+*********************************************/
 
 function deleteAccount()
 {
