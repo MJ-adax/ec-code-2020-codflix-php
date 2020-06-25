@@ -19,25 +19,7 @@
             </div>  
         </div>  
     </div>
-    <?php if($infosMedia['type'] == 'Serie'):?>
-    
-        <div>
-            <h3>Saison 1</h3>
-            <div class="media-list">
-                <?php foreach( $infosSerie as $episode ): ?>
-                    <a class="item" href="index.php?media=<?= $episode['id']; ?>">
-                        <div class="video">
-                            <div>
-                                <iframe allowfullscreen="" frameborder="0"
-                                        src="<?= $episode['trailer_url']; ?>" ></iframe>
-                            </div>
-                        </div>
-                        <div class="title"><?= $episode['name_episode']; ?></div>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    <?php endif; ?>
+   
 
    
 </div>

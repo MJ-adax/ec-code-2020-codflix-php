@@ -14,20 +14,15 @@
 </div>
 
 <div class="media-list">
-
-    <?php foreach( $medias as $media ): ?>
-        <?php if ($media['type'] == 'Film'): ?>
-            <a class="item" href="index.php?media=<?= $media['id']; ?>">
-        <?php else: ?>
-            <a class="item" href="index.php?serie=<?= $media['id']; ?>">
-        <?php endif; ?>
+    <?php foreach( $episodes as $episode ): ?>
+        <a class="item" href="index.php?serie=<?= $episode['media_id']?>&episode=<?= $episode['id']; ?>">
             <div class="video">
                 <div>
                     <iframe allowfullscreen="" frameborder="0"
-                            src="<?= $media['trailer_url']; ?>" ></iframe>
+                            src="<?= $episode['trailer_url']; ?>" ></iframe>
                 </div>
             </div>
-            <div class="title"><?= $media['title']; ?></div>
+            <div class="title"><?= $episode['name_episode']; ?></div>
         </a>
     <?php endforeach; ?>
 </div>

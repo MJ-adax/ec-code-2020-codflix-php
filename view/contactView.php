@@ -6,18 +6,18 @@
       <div class="col-md-6 full-height bg-white">
         <div class="auth-container">
           <h2><span>Cod</span>'Flix</h2>
-          <h3>Connexion</h3>
+          <h3>Contactez Nous</h3>
 
           <form method="post" action="index.php?action=login" class="custom-form">
 
             <div class="form-group">
-              <label for="email">Adresse email</label>
+              <label for="email">Votre Mail</label>
               <input type="email" name="email" value="" id="email" class="form-control" />
             </div>
 
             <div class="form-group">
-              <label for="password">Mot de passe</label>
-              <input type="password" name="password" id="password" class="form-control" />
+              <label for="message">Votre Message</label>
+              <textarea class="form-control"></textarea>
             </div>
 
             <div class="form-group">
@@ -31,8 +31,6 @@
               </div>
             </div>
 
-            <a href="index.php?action=contact">Nous Contacter</a>
-
             <span class="error-msg">
               <?= isset( $error_msg ) ? $error_msg : null; ?>
             </span>
@@ -41,7 +39,7 @@
       </div>
       <div class="col-md-6 full-height">
         <div class="auth-container">
-          <h1>Heureux de vous revoir !</h1>
+          <h1>Cod'Flix est à votre écoute</h1>
         </div>
       </div>
     </div>
@@ -51,4 +49,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require( __DIR__ . '/../base.php'); ?>
+<?php require('dashboard.php'); ?>

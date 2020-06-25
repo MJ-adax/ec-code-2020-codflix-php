@@ -5,6 +5,9 @@ require_once( 'controller/loginController.php' );
 require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
 require_once( 'controller/mediaDetailController.php' );
+require_once( 'controller/contactController.php' );
+require_once( 'controller/serieController.php');
+require_once( 'controller/episodeController.php');
 
 
 /**************************
@@ -34,6 +37,12 @@ if ( isset( $_GET['action'] ) ):
 
     break;
 
+    case 'contact':
+
+      contactPage();
+
+    break;
+
   endswitch;
 
 else:
@@ -47,12 +56,25 @@ else:
     
       detailMediaPage();
 
+    elseif (isset( $_GET['serie'] ) ):
+
+      if(isset( $_GET['episode'] ) ):
+
+        episodePage();
+        
+      else:
+
+        seriePage();
+
+      endif;
+
     else:
 
       mediaPage();
 
     endif;
     
+  
   else:
 
     homePage();
