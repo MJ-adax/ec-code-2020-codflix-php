@@ -1,24 +1,21 @@
 <?php ob_start(); ?>
 
-<div>
-    
+<div>  
 
     <div>
-    
-        <h1><?php $infosEpisode['name_episode']; ?></h1>
-        <div class="title"> "<?= $infosEpisode['summary']; ?>"</div>
+        <div class="row ">
+            <h1 class="col-md-3-30" style="margin-right: 5%"><?= $infosEpisode['name_episode']; ?></h1>
+            <h4 class="col-md-3"> <?=  gmdate("i:s", $infosEpisode['duration']); ?></h4>
+            <div class="col-md-3"><?= $infosEpisode['release_date']; ?></div>
+        </div>
+        
         <iframe 
             allowfullscreen="" frameborder="0"
             width="800"
             height="400"
             src="<?= $infosEpisode['trailer_url']; ?>?autoplay=1">
         </iframe>
-        <div>
-            <div style="display: flex;">
-                <div style="float: left; width: 50%;"><?= $infosEpisode['release_date']; ?></div>
-                <div style="float: right; width: 50%;"> <?= gmdate("i:s", $infosEpisode['duration']); ?></div>
-            </div>  
-        </div>  
+        <div class="title" style="margin-top: 3%"> "<?= $infosEpisode['summary']; ?>"</div>
     </div>
 </div>
 

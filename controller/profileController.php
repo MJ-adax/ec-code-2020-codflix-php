@@ -8,12 +8,7 @@ require_once( 'model/user.php' );
 
 function profilePage()
 {
- 
     require('view/profileView.php');
-  
-
-    
-
 }
 
 function changePassword()
@@ -31,7 +26,6 @@ function changePassword()
         $error_msg = 'Le nouveau mot de passe et la confirmation ne sont pas identiques';
     }
     require('view/profileView.php');
-
 }
 
 function changeEmail()
@@ -48,6 +42,4 @@ function deleteAccount()
     User::deleteUserProfile($current_id);
 
     require('view/profileView.php');
-
-
 }

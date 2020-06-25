@@ -4,20 +4,19 @@
     
 
     <div>
-        <h1><?= $infosMedia['title']; ?></h1>
-        <div class="title"> "<?= $infosMedia['summary']; ?>"</div>
+        <div class="row ">
+            <h1 class="col-md-3" style="margin-right: 5%"><?= $infosMedia['title']; ?></h1>
+            <h4 class="col-md-3"> <?= $infosMedia['type']; ?></h4>
+            <div class="col-md-3"><?= $infosMedia['release_date']; ?></div>
+        </div>
+        
         <iframe 
             allowfullscreen="" frameborder="0"
             width="800"
             height="400"
             src="<?= $infosMedia['trailer_url']; ?>" >
         </iframe>
-        <div>
-            <div style="display: flex;">
-                <div style="float: left; width: 50%;"><?= $infosMedia['release_date']; ?></div>
-                <div style="float: right; width: 50%;"> <?= $infosMedia['type']; ?></div>
-            </div>  
-        </div>  
+        <div class="title" style="margin-top: 3%"> "<?= $infosMedia['summary']; ?>"</div>
     </div>
    
 
